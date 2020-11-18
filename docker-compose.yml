@@ -1,0 +1,15 @@
+version: '3.3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: chicpro/centos7-httpd-php54
+    container_name: centos7-httpd-php54
+    ports:
+      - "9002:80"
+    restart: always
+    volumes:
+      - ./public:/var/www/html/
+      - /tmp/mysql.sock:/var/run/mysqld/mysqld.sock
